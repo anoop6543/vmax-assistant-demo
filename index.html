@@ -5,8 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="VMAX Assistant — panel costing, BOM estimation and quotation system for Vmax Power Controls Pvt Ltd, Hyderabad. Makers of PCC, MCC, APFC, AMF, VFD and PLC control panels." />
     <title>VMAX Assistant | Vmax Power Controls Pvt Ltd</title>
-    <script type="module" crossorigin src="/vmax-assistant-demo/assets/index-DigeDW_K.js"></script>
-    <link rel="stylesheet" crossorigin href="/vmax-assistant-demo/assets/index-CthboZep.css">
+    <script>
+      // Pre-paint theme bootstrap (no flash): stored choice > OS > light.
+      // Sets the `dark` class and matching backdrop on <html> before first paint.
+      (function () {
+        try {
+          var t = null;
+          try { t = JSON.parse(localStorage.getItem('vmax-v1-theme') || 'null'); } catch (e) { /* raw value fallback below */ }
+          if (t !== 'light' && t !== 'dark') {
+            var raw = localStorage.getItem('vmax-v1-theme');
+            t = raw === 'dark' ? 'dark' : raw === 'light' ? 'light' : null;
+          }
+          var dark = t ? t === 'dark' : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          var root = document.documentElement;
+          if (dark) root.classList.add('dark');
+          root.style.colorScheme = dark ? 'dark' : 'light';
+          root.style.backgroundColor = dark ? '#020617' : '#f8fafc';
+        } catch (e) { /* storage unavailable — light default */ }
+      })();
+    </script>
+    <script type="module" crossorigin src="/vmax-assistant-demo/assets/index-Bph4kAHc.js"></script>
+    <link rel="stylesheet" crossorigin href="/vmax-assistant-demo/assets/index-Cm4Q_Szo.css">
   </head>
   <body>
     <div id="root"></div>
